@@ -465,7 +465,7 @@ for (var i = john.length - 1; i >= john[i]; i++) {
 
 var john = {
     fullName: 'John Cena',
-    bills: [124, 88, 268, 180, 42],
+    bills: [124, 88, 368, 180, 42],
     calcTips: function() {
         this.tips = [];
         this.finalValues = [];
@@ -477,8 +477,34 @@ var john = {
 
             if (bills < 50) {
                 percentage = .2;
-            } else if (bills < 50) {
+            } else if (bills >= 50 && bills < 100) {
                 percentage = .15;
+            } else {
+                percentage = 0.1
+            }
+
+            this.tips[i] = bills * percentage;
+            finalValues = bills + bills * percentage;
+        }
+    }
+}
+
+var brock = {
+    fullName: 'Brock Lesnar',
+    bills: [130, 90, 168, 480, 62],
+    calcTips: function() {
+        this.tips = [];
+        this.finalValues = [];
+
+        for (var i = 0; i < this.bills.length; i++) {
+
+            var percentage;
+            var bills = this.bills[i];
+
+            if (bills < 50) {
+                percentage = .2;
+            } else if (bills >= 50 && bills < 200) {
+                percentage = .5;
             } else {
                 percentage = 0.1
             }
@@ -494,7 +520,19 @@ function calcAverage(tips) {
     for (var i = 0; i < tips.length; i++) {
         sum = sum + tips[i];
     }
-    return 30 / tips.length;
+    return sum / tips.length;
 }
 
-//console.log(john);
+john.calcTips();
+brock.calcTips();
+console.log(john, brock);
+
+john.average = calcAverage(john.tips);
+brock.average = calcAverage(brock.tips);
+console.log(john, brock);
+
+if (john.average > brock.average) {
+    console.log(john.fullName + '\s family pays higher tips, with an average of $' + john.average);
+} else if (john.average < brock.average) {
+    console.log(brock.fullName + '\s family pays higher tips with an average of $' + brock.average);
+}
