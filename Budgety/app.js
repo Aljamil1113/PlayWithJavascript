@@ -19,7 +19,6 @@ var budgetController = (function() {
         } else {
             this.percentage = -1;
         }
-
     };
 
     Expense.prototype.getPercentage = function() {
@@ -49,7 +48,6 @@ var budgetController = (function() {
 
     return {
         addItem: function(type, des, val) {
-
             var newItem, ID;
 
             //Create new ID

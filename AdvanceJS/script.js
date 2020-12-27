@@ -153,7 +153,8 @@ game();
 })(5);
 
 **
-** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** CLOSURES * /
+**
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** CLOSURES * /
 
 function retirement(retirementAge) {
     var a = ' years left until retirement.';
